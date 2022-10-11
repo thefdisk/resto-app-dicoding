@@ -24,7 +24,8 @@ class ApiFailure with _$ApiFailure {
     return map(
       serverError: (failure) => 'Terdapat gangguan pada server.',
       unexpectedError: (failure) => 'Terjadi kesalahan. Coba lagi nanti',
-      connectionError: (failure) => 'Tidak dapat terhubung ke server.',
+      connectionError: (failure) =>
+          'Tidak dapat terhubung ke server. Periksa jaringan Anda',
       internalServerError: (failure) =>
           'Server sedang mengalami gangguan. Coba lagi nani.',
       unauthorized: (failure) => unauthorizedMessage ?? 'Session telah habis.',

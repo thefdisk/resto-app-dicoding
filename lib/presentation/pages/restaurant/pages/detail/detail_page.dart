@@ -4,6 +4,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:resto_app_dicoding/application/restaurant/restaurant_detail_loader/restaurant_detail_loader_bloc.dart';
 import 'package:resto_app_dicoding/domain/core/value_objects.dart';
 import 'package:resto_app_dicoding/injection.dart';
+import 'package:resto_app_dicoding/presentation/components/bottom_sheet/restaurant_review_bottom_sheet.dart';
+import 'package:resto_app_dicoding/presentation/components/gen/colors.gen.dart';
+import 'package:resto_app_dicoding/presentation/components/styles/typography.dart';
+import 'package:resto_app_dicoding/presentation/routes/app_router.gr.dart';
+
+import 'widgets/restaurant_detail_header_widget.dart';
 
 class RestaurantDetailPage extends StatelessWidget implements AutoRouteWrapper {
   const RestaurantDetailPage({
@@ -15,29 +21,144 @@ class RestaurantDetailPage extends StatelessWidget implements AutoRouteWrapper {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Detail'),
-      ),
-      body:
-          BlocBuilder<RestaurantDetailLoaderBloc, RestaurantDetailLoaderState>(
-        builder: (context, state) {
-          return state.map(
-            initial: (_) => const SizedBox(),
-            loadInProgress: (_) => const Center(
-              child: CircularProgressIndicator(),
+    return AutoTabsRouter.tabBar(
+      routes: const [
+        RestaurantMenusRoute(),
+        RestaurantDescriptionRoute(),
+        RestaurantReviewsRoute(),
+      ],
+      builder: (context, child, tabController) {
+        return Scaffold(
+          appBar: AppBar(
+            title: Text(
+              'Detail Restaurant',
+              style: AppTypography(context).heading2,
             ),
-            loadFailure: (_) => const SizedBox(),
-            loadSuccess: (state) {
-              final restaurant = state.restaurant;
+            centerTitle: true,
+            actions: [
+              BlocBuilder<RestaurantDetailLoaderBloc,
+                  RestaurantDetailLoaderState>(
+                builder: (context, state) {
+                  return state.maybeMap(
+                    orElse: () => const SizedBox(),
+                    loadSuccess: (state) => IconButton(
+                      onPressed: () => showReviewRestaurantBottomSheet(
+                        context,
+                        restaurant: state.restaurant,
+                      ).then(
+                        /// Jika review sukses maka akan merefresh detail restaurant
+                        /// untuk mendapatkan data review yang terbaru.
+                        (value) => value != null && value
+                            ? context
+                                .read<RestaurantDetailLoaderBloc>()
+                                .add(RestaurantDetailLoaderEvent.fetched(
+                                  restaurantId,
+                                ))
+                            : null,
+                      ),
+                      icon: const Icon(
+                        Icons.rate_review_outlined,
+                        color: ColorName.primaryYellow700,
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ],
+          ),
+          body: BlocBuilder<RestaurantDetailLoaderBloc,
+              RestaurantDetailLoaderState>(
+            builder: (context, state) {
+              return state.map(
+                initial: (_) => const SizedBox(),
+                loadInProgress: (_) => const Center(
+                  child: CircularProgressIndicator(),
+                ),
+                loadFailure: (_) => const SizedBox(),
+                loadSuccess: (state) {
+                  final restaurant = state.restaurant;
 
-              return Center(
-                child: Text(restaurant.name.getOrCrash()),
+                  return Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      RestaurantDetailHeaderWidget(restaurant: restaurant),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Text(
+                              '${restaurant.address.getOrElse('')}, ${restaurant.city.getOrElse('')}',
+                              style: AppTypography(context).body2,
+                            ),
+                            const SizedBox(height: 8),
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Text(
+                                  'Category :',
+                                  style: AppTypography(context).body2,
+                                ),
+                                for (var category in restaurant.categories.iter)
+                                  Container(
+                                    padding: const EdgeInsets.symmetric(
+                                      vertical: 2,
+                                      horizontal: 4,
+                                    ),
+                                    margin: const EdgeInsets.symmetric(
+                                        horizontal: 4),
+                                    decoration: BoxDecoration(
+                                      color: ColorName.alertOffGrey,
+                                      borderRadius: BorderRadius.circular(8),
+                                    ),
+                                    child: Text(
+                                      category.name.getOrCrash(),
+                                      style: AppTypography(context)
+                                          .subtitle2
+                                          .copyWith(
+                                            color: ColorName.textSecondaryGrey,
+                                          ),
+                                    ),
+                                  ),
+                              ],
+                            ),
+                            const SizedBox(height: 12),
+                            TabBar(
+                              controller: tabController,
+                              indicator: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8),
+                                color: ColorName.accentContainerGrey,
+                                border: Border.all(
+                                  color: ColorName.primaryYellow700,
+                                ),
+                              ),
+                              labelStyle: AppTypography(context).body2,
+                              tabs: const [
+                                Tab(
+                                  text: 'Menus',
+                                ),
+                                Tab(
+                                  text: 'Description',
+                                ),
+                                Tab(
+                                  text: 'Reviews',
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                      Expanded(child: child),
+                    ],
+                  );
+                },
               );
             },
-          );
-        },
-      ),
+          ),
+        );
+      },
     );
   }
 

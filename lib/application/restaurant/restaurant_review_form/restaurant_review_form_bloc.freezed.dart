@@ -18,6 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$RestaurantReviewFormEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(GeneratedId restaurantId) restaurantIdChanged,
     required TResult Function(String name) nameChanged,
     required TResult Function(String review) reviewChanged,
     required TResult Function() submitted,
@@ -25,6 +26,7 @@ mixin _$RestaurantReviewFormEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(GeneratedId restaurantId)? restaurantIdChanged,
     TResult Function(String name)? nameChanged,
     TResult Function(String review)? reviewChanged,
     TResult Function()? submitted,
@@ -32,6 +34,7 @@ mixin _$RestaurantReviewFormEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(GeneratedId restaurantId)? restaurantIdChanged,
     TResult Function(String name)? nameChanged,
     TResult Function(String review)? reviewChanged,
     TResult Function()? submitted,
@@ -40,6 +43,7 @@ mixin _$RestaurantReviewFormEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_RestaurantIdChanged value) restaurantIdChanged,
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_ReviewChanged value) reviewChanged,
     required TResult Function(_Submitted value) submitted,
@@ -47,6 +51,7 @@ mixin _$RestaurantReviewFormEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_RestaurantIdChanged value)? restaurantIdChanged,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_ReviewChanged value)? reviewChanged,
     TResult Function(_Submitted value)? submitted,
@@ -54,6 +59,7 @@ mixin _$RestaurantReviewFormEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_RestaurantIdChanged value)? restaurantIdChanged,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_ReviewChanged value)? reviewChanged,
     TResult Function(_Submitted value)? submitted,
@@ -77,6 +83,155 @@ class _$RestaurantReviewFormEventCopyWithImpl<$Res>
   final RestaurantReviewFormEvent _value;
   // ignore: unused_field
   final $Res Function(RestaurantReviewFormEvent) _then;
+}
+
+/// @nodoc
+abstract class _$$_RestaurantIdChangedCopyWith<$Res> {
+  factory _$$_RestaurantIdChangedCopyWith(_$_RestaurantIdChanged value,
+          $Res Function(_$_RestaurantIdChanged) then) =
+      __$$_RestaurantIdChangedCopyWithImpl<$Res>;
+  $Res call({GeneratedId restaurantId});
+}
+
+/// @nodoc
+class __$$_RestaurantIdChangedCopyWithImpl<$Res>
+    extends _$RestaurantReviewFormEventCopyWithImpl<$Res>
+    implements _$$_RestaurantIdChangedCopyWith<$Res> {
+  __$$_RestaurantIdChangedCopyWithImpl(_$_RestaurantIdChanged _value,
+      $Res Function(_$_RestaurantIdChanged) _then)
+      : super(_value, (v) => _then(v as _$_RestaurantIdChanged));
+
+  @override
+  _$_RestaurantIdChanged get _value => super._value as _$_RestaurantIdChanged;
+
+  @override
+  $Res call({
+    Object? restaurantId = freezed,
+  }) {
+    return _then(_$_RestaurantIdChanged(
+      restaurantId == freezed
+          ? _value.restaurantId
+          : restaurantId // ignore: cast_nullable_to_non_nullable
+              as GeneratedId,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_RestaurantIdChanged implements _RestaurantIdChanged {
+  const _$_RestaurantIdChanged(this.restaurantId);
+
+  @override
+  final GeneratedId restaurantId;
+
+  @override
+  String toString() {
+    return 'RestaurantReviewFormEvent.restaurantIdChanged(restaurantId: $restaurantId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_RestaurantIdChanged &&
+            const DeepCollectionEquality()
+                .equals(other.restaurantId, restaurantId));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(restaurantId));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_RestaurantIdChangedCopyWith<_$_RestaurantIdChanged> get copyWith =>
+      __$$_RestaurantIdChangedCopyWithImpl<_$_RestaurantIdChanged>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(GeneratedId restaurantId) restaurantIdChanged,
+    required TResult Function(String name) nameChanged,
+    required TResult Function(String review) reviewChanged,
+    required TResult Function() submitted,
+  }) {
+    return restaurantIdChanged(restaurantId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(GeneratedId restaurantId)? restaurantIdChanged,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String review)? reviewChanged,
+    TResult Function()? submitted,
+  }) {
+    return restaurantIdChanged?.call(restaurantId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(GeneratedId restaurantId)? restaurantIdChanged,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String review)? reviewChanged,
+    TResult Function()? submitted,
+    required TResult orElse(),
+  }) {
+    if (restaurantIdChanged != null) {
+      return restaurantIdChanged(restaurantId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_RestaurantIdChanged value) restaurantIdChanged,
+    required TResult Function(_NameChanged value) nameChanged,
+    required TResult Function(_ReviewChanged value) reviewChanged,
+    required TResult Function(_Submitted value) submitted,
+  }) {
+    return restaurantIdChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_RestaurantIdChanged value)? restaurantIdChanged,
+    TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_ReviewChanged value)? reviewChanged,
+    TResult Function(_Submitted value)? submitted,
+  }) {
+    return restaurantIdChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_RestaurantIdChanged value)? restaurantIdChanged,
+    TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_ReviewChanged value)? reviewChanged,
+    TResult Function(_Submitted value)? submitted,
+    required TResult orElse(),
+  }) {
+    if (restaurantIdChanged != null) {
+      return restaurantIdChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _RestaurantIdChanged implements RestaurantReviewFormEvent {
+  const factory _RestaurantIdChanged(final GeneratedId restaurantId) =
+      _$_RestaurantIdChanged;
+
+  GeneratedId get restaurantId;
+  @JsonKey(ignore: true)
+  _$$_RestaurantIdChangedCopyWith<_$_RestaurantIdChanged> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -144,6 +299,7 @@ class _$_NameChanged implements _NameChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(GeneratedId restaurantId) restaurantIdChanged,
     required TResult Function(String name) nameChanged,
     required TResult Function(String review) reviewChanged,
     required TResult Function() submitted,
@@ -154,6 +310,7 @@ class _$_NameChanged implements _NameChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(GeneratedId restaurantId)? restaurantIdChanged,
     TResult Function(String name)? nameChanged,
     TResult Function(String review)? reviewChanged,
     TResult Function()? submitted,
@@ -164,6 +321,7 @@ class _$_NameChanged implements _NameChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(GeneratedId restaurantId)? restaurantIdChanged,
     TResult Function(String name)? nameChanged,
     TResult Function(String review)? reviewChanged,
     TResult Function()? submitted,
@@ -178,6 +336,7 @@ class _$_NameChanged implements _NameChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_RestaurantIdChanged value) restaurantIdChanged,
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_ReviewChanged value) reviewChanged,
     required TResult Function(_Submitted value) submitted,
@@ -188,6 +347,7 @@ class _$_NameChanged implements _NameChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_RestaurantIdChanged value)? restaurantIdChanged,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_ReviewChanged value)? reviewChanged,
     TResult Function(_Submitted value)? submitted,
@@ -198,6 +358,7 @@ class _$_NameChanged implements _NameChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_RestaurantIdChanged value)? restaurantIdChanged,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_ReviewChanged value)? reviewChanged,
     TResult Function(_Submitted value)? submitted,
@@ -284,6 +445,7 @@ class _$_ReviewChanged implements _ReviewChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(GeneratedId restaurantId) restaurantIdChanged,
     required TResult Function(String name) nameChanged,
     required TResult Function(String review) reviewChanged,
     required TResult Function() submitted,
@@ -294,6 +456,7 @@ class _$_ReviewChanged implements _ReviewChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(GeneratedId restaurantId)? restaurantIdChanged,
     TResult Function(String name)? nameChanged,
     TResult Function(String review)? reviewChanged,
     TResult Function()? submitted,
@@ -304,6 +467,7 @@ class _$_ReviewChanged implements _ReviewChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(GeneratedId restaurantId)? restaurantIdChanged,
     TResult Function(String name)? nameChanged,
     TResult Function(String review)? reviewChanged,
     TResult Function()? submitted,
@@ -318,6 +482,7 @@ class _$_ReviewChanged implements _ReviewChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_RestaurantIdChanged value) restaurantIdChanged,
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_ReviewChanged value) reviewChanged,
     required TResult Function(_Submitted value) submitted,
@@ -328,6 +493,7 @@ class _$_ReviewChanged implements _ReviewChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_RestaurantIdChanged value)? restaurantIdChanged,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_ReviewChanged value)? reviewChanged,
     TResult Function(_Submitted value)? submitted,
@@ -338,6 +504,7 @@ class _$_ReviewChanged implements _ReviewChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_RestaurantIdChanged value)? restaurantIdChanged,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_ReviewChanged value)? reviewChanged,
     TResult Function(_Submitted value)? submitted,
@@ -400,6 +567,7 @@ class _$_Submitted implements _Submitted {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(GeneratedId restaurantId) restaurantIdChanged,
     required TResult Function(String name) nameChanged,
     required TResult Function(String review) reviewChanged,
     required TResult Function() submitted,
@@ -410,6 +578,7 @@ class _$_Submitted implements _Submitted {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(GeneratedId restaurantId)? restaurantIdChanged,
     TResult Function(String name)? nameChanged,
     TResult Function(String review)? reviewChanged,
     TResult Function()? submitted,
@@ -420,6 +589,7 @@ class _$_Submitted implements _Submitted {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(GeneratedId restaurantId)? restaurantIdChanged,
     TResult Function(String name)? nameChanged,
     TResult Function(String review)? reviewChanged,
     TResult Function()? submitted,
@@ -434,6 +604,7 @@ class _$_Submitted implements _Submitted {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_RestaurantIdChanged value) restaurantIdChanged,
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_ReviewChanged value) reviewChanged,
     required TResult Function(_Submitted value) submitted,
@@ -444,6 +615,7 @@ class _$_Submitted implements _Submitted {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_RestaurantIdChanged value)? restaurantIdChanged,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_ReviewChanged value)? reviewChanged,
     TResult Function(_Submitted value)? submitted,
@@ -454,6 +626,7 @@ class _$_Submitted implements _Submitted {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_RestaurantIdChanged value)? restaurantIdChanged,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_ReviewChanged value)? reviewChanged,
     TResult Function(_Submitted value)? submitted,
@@ -472,11 +645,11 @@ abstract class _Submitted implements RestaurantReviewFormEvent {
 
 /// @nodoc
 mixin _$RestaurantReviewFormState {
+  GeneratedId get restaurantId => throw _privateConstructorUsedError;
   StringSingleLine get name => throw _privateConstructorUsedError;
   StringSingleLine get review => throw _privateConstructorUsedError;
   Option<Either<RestaurantFailure, Unit>> get failureOrUnitOption =>
       throw _privateConstructorUsedError;
-  bool get showErrorMessages => throw _privateConstructorUsedError;
   bool get isSubmitting => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -490,10 +663,10 @@ abstract class $RestaurantReviewFormStateCopyWith<$Res> {
           $Res Function(RestaurantReviewFormState) then) =
       _$RestaurantReviewFormStateCopyWithImpl<$Res>;
   $Res call(
-      {StringSingleLine name,
+      {GeneratedId restaurantId,
+      StringSingleLine name,
       StringSingleLine review,
       Option<Either<RestaurantFailure, Unit>> failureOrUnitOption,
-      bool showErrorMessages,
       bool isSubmitting});
 }
 
@@ -508,13 +681,17 @@ class _$RestaurantReviewFormStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? restaurantId = freezed,
     Object? name = freezed,
     Object? review = freezed,
     Object? failureOrUnitOption = freezed,
-    Object? showErrorMessages = freezed,
     Object? isSubmitting = freezed,
   }) {
     return _then(_value.copyWith(
+      restaurantId: restaurantId == freezed
+          ? _value.restaurantId
+          : restaurantId // ignore: cast_nullable_to_non_nullable
+              as GeneratedId,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -527,10 +704,6 @@ class _$RestaurantReviewFormStateCopyWithImpl<$Res>
           ? _value.failureOrUnitOption
           : failureOrUnitOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<RestaurantFailure, Unit>>,
-      showErrorMessages: showErrorMessages == freezed
-          ? _value.showErrorMessages
-          : showErrorMessages // ignore: cast_nullable_to_non_nullable
-              as bool,
       isSubmitting: isSubmitting == freezed
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
@@ -548,10 +721,10 @@ abstract class _$$_RestaurantReviewFormStateCopyWith<$Res>
       __$$_RestaurantReviewFormStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {StringSingleLine name,
+      {GeneratedId restaurantId,
+      StringSingleLine name,
       StringSingleLine review,
       Option<Either<RestaurantFailure, Unit>> failureOrUnitOption,
-      bool showErrorMessages,
       bool isSubmitting});
 }
 
@@ -570,13 +743,17 @@ class __$$_RestaurantReviewFormStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? restaurantId = freezed,
     Object? name = freezed,
     Object? review = freezed,
     Object? failureOrUnitOption = freezed,
-    Object? showErrorMessages = freezed,
     Object? isSubmitting = freezed,
   }) {
     return _then(_$_RestaurantReviewFormState(
+      restaurantId: restaurantId == freezed
+          ? _value.restaurantId
+          : restaurantId // ignore: cast_nullable_to_non_nullable
+              as GeneratedId,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -589,10 +766,6 @@ class __$$_RestaurantReviewFormStateCopyWithImpl<$Res>
           ? _value.failureOrUnitOption
           : failureOrUnitOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<RestaurantFailure, Unit>>,
-      showErrorMessages: showErrorMessages == freezed
-          ? _value.showErrorMessages
-          : showErrorMessages // ignore: cast_nullable_to_non_nullable
-              as bool,
       isSubmitting: isSubmitting == freezed
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
@@ -605,12 +778,14 @@ class __$$_RestaurantReviewFormStateCopyWithImpl<$Res>
 
 class _$_RestaurantReviewFormState implements _RestaurantReviewFormState {
   const _$_RestaurantReviewFormState(
-      {required this.name,
+      {required this.restaurantId,
+      required this.name,
       required this.review,
       required this.failureOrUnitOption,
-      this.showErrorMessages = false,
       this.isSubmitting = false});
 
+  @override
+  final GeneratedId restaurantId;
   @override
   final StringSingleLine name;
   @override
@@ -619,14 +794,11 @@ class _$_RestaurantReviewFormState implements _RestaurantReviewFormState {
   final Option<Either<RestaurantFailure, Unit>> failureOrUnitOption;
   @override
   @JsonKey()
-  final bool showErrorMessages;
-  @override
-  @JsonKey()
   final bool isSubmitting;
 
   @override
   String toString() {
-    return 'RestaurantReviewFormState(name: $name, review: $review, failureOrUnitOption: $failureOrUnitOption, showErrorMessages: $showErrorMessages, isSubmitting: $isSubmitting)';
+    return 'RestaurantReviewFormState(restaurantId: $restaurantId, name: $name, review: $review, failureOrUnitOption: $failureOrUnitOption, isSubmitting: $isSubmitting)';
   }
 
   @override
@@ -634,12 +806,12 @@ class _$_RestaurantReviewFormState implements _RestaurantReviewFormState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_RestaurantReviewFormState &&
+            const DeepCollectionEquality()
+                .equals(other.restaurantId, restaurantId) &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.review, review) &&
             const DeepCollectionEquality()
                 .equals(other.failureOrUnitOption, failureOrUnitOption) &&
-            const DeepCollectionEquality()
-                .equals(other.showErrorMessages, showErrorMessages) &&
             const DeepCollectionEquality()
                 .equals(other.isSubmitting, isSubmitting));
   }
@@ -647,10 +819,10 @@ class _$_RestaurantReviewFormState implements _RestaurantReviewFormState {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(restaurantId),
       const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(review),
       const DeepCollectionEquality().hash(failureOrUnitOption),
-      const DeepCollectionEquality().hash(showErrorMessages),
       const DeepCollectionEquality().hash(isSubmitting));
 
   @JsonKey(ignore: true)
@@ -662,21 +834,21 @@ class _$_RestaurantReviewFormState implements _RestaurantReviewFormState {
 
 abstract class _RestaurantReviewFormState implements RestaurantReviewFormState {
   const factory _RestaurantReviewFormState(
-      {required final StringSingleLine name,
+      {required final GeneratedId restaurantId,
+      required final StringSingleLine name,
       required final StringSingleLine review,
       required final Option<Either<RestaurantFailure, Unit>>
           failureOrUnitOption,
-      final bool showErrorMessages,
       final bool isSubmitting}) = _$_RestaurantReviewFormState;
 
+  @override
+  GeneratedId get restaurantId;
   @override
   StringSingleLine get name;
   @override
   StringSingleLine get review;
   @override
   Option<Either<RestaurantFailure, Unit>> get failureOrUnitOption;
-  @override
-  bool get showErrorMessages;
   @override
   bool get isSubmitting;
   @override

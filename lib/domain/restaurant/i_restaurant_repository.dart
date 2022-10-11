@@ -13,6 +13,7 @@ abstract class IRestaurantRepository {
     required StringSingleLine keyword,
   });
   Future<Either<RestaurantFailure, Unit>> addRestaurantReview({
+    required GeneratedId restaurantId,
     required StringSingleLine name,
     required StringSingleLine review,
   });

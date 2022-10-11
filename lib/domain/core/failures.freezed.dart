@@ -21,27 +21,21 @@ mixin _$ValueFailure<T> {
   TResult when<TResult extends Object?>({
     required TResult Function(T failedValue) empty,
     required TResult Function(T failedValue) multiLine,
-    required TResult Function(T failedValue, int max) exceedingLength,
     required TResult Function(T failedValue) invalidNominal,
-    required TResult Function(T failedValue) containSpaces,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue)? multiLine,
-    TResult Function(T failedValue, int max)? exceedingLength,
     TResult Function(T failedValue)? invalidNominal,
-    TResult Function(T failedValue)? containSpaces,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue)? multiLine,
-    TResult Function(T failedValue, int max)? exceedingLength,
     TResult Function(T failedValue)? invalidNominal,
-    TResult Function(T failedValue)? containSpaces,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -49,27 +43,21 @@ mixin _$ValueFailure<T> {
   TResult map<TResult extends Object?>({
     required TResult Function(_Empty<T> value) empty,
     required TResult Function(_MultiLine<T> value) multiLine,
-    required TResult Function(_ExceedingLength<T> value) exceedingLength,
     required TResult Function(_InvalidNominal<T> value) invalidNominal,
-    required TResult Function(_ContainSpaces<T> value) containSpaces,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Empty<T> value)? empty,
     TResult Function(_MultiLine<T> value)? multiLine,
-    TResult Function(_ExceedingLength<T> value)? exceedingLength,
     TResult Function(_InvalidNominal<T> value)? invalidNominal,
-    TResult Function(_ContainSpaces<T> value)? containSpaces,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Empty<T> value)? empty,
     TResult Function(_MultiLine<T> value)? multiLine,
-    TResult Function(_ExceedingLength<T> value)? exceedingLength,
     TResult Function(_InvalidNominal<T> value)? invalidNominal,
-    TResult Function(_ContainSpaces<T> value)? containSpaces,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -178,9 +166,7 @@ class _$_Empty<T> implements _Empty<T> {
   TResult when<TResult extends Object?>({
     required TResult Function(T failedValue) empty,
     required TResult Function(T failedValue) multiLine,
-    required TResult Function(T failedValue, int max) exceedingLength,
     required TResult Function(T failedValue) invalidNominal,
-    required TResult Function(T failedValue) containSpaces,
   }) {
     return empty(failedValue);
   }
@@ -190,9 +176,7 @@ class _$_Empty<T> implements _Empty<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue)? multiLine,
-    TResult Function(T failedValue, int max)? exceedingLength,
     TResult Function(T failedValue)? invalidNominal,
-    TResult Function(T failedValue)? containSpaces,
   }) {
     return empty?.call(failedValue);
   }
@@ -202,9 +186,7 @@ class _$_Empty<T> implements _Empty<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue)? multiLine,
-    TResult Function(T failedValue, int max)? exceedingLength,
     TResult Function(T failedValue)? invalidNominal,
-    TResult Function(T failedValue)? containSpaces,
     required TResult orElse(),
   }) {
     if (empty != null) {
@@ -218,9 +200,7 @@ class _$_Empty<T> implements _Empty<T> {
   TResult map<TResult extends Object?>({
     required TResult Function(_Empty<T> value) empty,
     required TResult Function(_MultiLine<T> value) multiLine,
-    required TResult Function(_ExceedingLength<T> value) exceedingLength,
     required TResult Function(_InvalidNominal<T> value) invalidNominal,
-    required TResult Function(_ContainSpaces<T> value) containSpaces,
   }) {
     return empty(this);
   }
@@ -230,9 +210,7 @@ class _$_Empty<T> implements _Empty<T> {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Empty<T> value)? empty,
     TResult Function(_MultiLine<T> value)? multiLine,
-    TResult Function(_ExceedingLength<T> value)? exceedingLength,
     TResult Function(_InvalidNominal<T> value)? invalidNominal,
-    TResult Function(_ContainSpaces<T> value)? containSpaces,
   }) {
     return empty?.call(this);
   }
@@ -242,9 +220,7 @@ class _$_Empty<T> implements _Empty<T> {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Empty<T> value)? empty,
     TResult Function(_MultiLine<T> value)? multiLine,
-    TResult Function(_ExceedingLength<T> value)? exceedingLength,
     TResult Function(_InvalidNominal<T> value)? invalidNominal,
-    TResult Function(_ContainSpaces<T> value)? containSpaces,
     required TResult orElse(),
   }) {
     if (empty != null) {
@@ -335,9 +311,7 @@ class _$_MultiLine<T> implements _MultiLine<T> {
   TResult when<TResult extends Object?>({
     required TResult Function(T failedValue) empty,
     required TResult Function(T failedValue) multiLine,
-    required TResult Function(T failedValue, int max) exceedingLength,
     required TResult Function(T failedValue) invalidNominal,
-    required TResult Function(T failedValue) containSpaces,
   }) {
     return multiLine(failedValue);
   }
@@ -347,9 +321,7 @@ class _$_MultiLine<T> implements _MultiLine<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue)? multiLine,
-    TResult Function(T failedValue, int max)? exceedingLength,
     TResult Function(T failedValue)? invalidNominal,
-    TResult Function(T failedValue)? containSpaces,
   }) {
     return multiLine?.call(failedValue);
   }
@@ -359,9 +331,7 @@ class _$_MultiLine<T> implements _MultiLine<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue)? multiLine,
-    TResult Function(T failedValue, int max)? exceedingLength,
     TResult Function(T failedValue)? invalidNominal,
-    TResult Function(T failedValue)? containSpaces,
     required TResult orElse(),
   }) {
     if (multiLine != null) {
@@ -375,9 +345,7 @@ class _$_MultiLine<T> implements _MultiLine<T> {
   TResult map<TResult extends Object?>({
     required TResult Function(_Empty<T> value) empty,
     required TResult Function(_MultiLine<T> value) multiLine,
-    required TResult Function(_ExceedingLength<T> value) exceedingLength,
     required TResult Function(_InvalidNominal<T> value) invalidNominal,
-    required TResult Function(_ContainSpaces<T> value) containSpaces,
   }) {
     return multiLine(this);
   }
@@ -387,9 +355,7 @@ class _$_MultiLine<T> implements _MultiLine<T> {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Empty<T> value)? empty,
     TResult Function(_MultiLine<T> value)? multiLine,
-    TResult Function(_ExceedingLength<T> value)? exceedingLength,
     TResult Function(_InvalidNominal<T> value)? invalidNominal,
-    TResult Function(_ContainSpaces<T> value)? containSpaces,
   }) {
     return multiLine?.call(this);
   }
@@ -399,9 +365,7 @@ class _$_MultiLine<T> implements _MultiLine<T> {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Empty<T> value)? empty,
     TResult Function(_MultiLine<T> value)? multiLine,
-    TResult Function(_ExceedingLength<T> value)? exceedingLength,
     TResult Function(_InvalidNominal<T> value)? invalidNominal,
-    TResult Function(_ContainSpaces<T> value)? containSpaces,
     required TResult orElse(),
   }) {
     if (multiLine != null) {
@@ -419,177 +383,6 @@ abstract class _MultiLine<T> implements ValueFailure<T> {
   @override
   @JsonKey(ignore: true)
   _$$_MultiLineCopyWith<T, _$_MultiLine<T>> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$_ExceedingLengthCopyWith<T, $Res>
-    implements $ValueFailureCopyWith<T, $Res> {
-  factory _$$_ExceedingLengthCopyWith(_$_ExceedingLength<T> value,
-          $Res Function(_$_ExceedingLength<T>) then) =
-      __$$_ExceedingLengthCopyWithImpl<T, $Res>;
-  @override
-  $Res call({T failedValue, int max});
-}
-
-/// @nodoc
-class __$$_ExceedingLengthCopyWithImpl<T, $Res>
-    extends _$ValueFailureCopyWithImpl<T, $Res>
-    implements _$$_ExceedingLengthCopyWith<T, $Res> {
-  __$$_ExceedingLengthCopyWithImpl(
-      _$_ExceedingLength<T> _value, $Res Function(_$_ExceedingLength<T>) _then)
-      : super(_value, (v) => _then(v as _$_ExceedingLength<T>));
-
-  @override
-  _$_ExceedingLength<T> get _value => super._value as _$_ExceedingLength<T>;
-
-  @override
-  $Res call({
-    Object? failedValue = freezed,
-    Object? max = freezed,
-  }) {
-    return _then(_$_ExceedingLength<T>(
-      failedValue: failedValue == freezed
-          ? _value.failedValue
-          : failedValue // ignore: cast_nullable_to_non_nullable
-              as T,
-      max: max == freezed
-          ? _value.max
-          : max // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_ExceedingLength<T> implements _ExceedingLength<T> {
-  const _$_ExceedingLength({required this.failedValue, required this.max});
-
-  @override
-  final T failedValue;
-  @override
-  final int max;
-
-  @override
-  String toString() {
-    return 'ValueFailure<$T>.exceedingLength(failedValue: $failedValue, max: $max)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_ExceedingLength<T> &&
-            const DeepCollectionEquality()
-                .equals(other.failedValue, failedValue) &&
-            const DeepCollectionEquality().equals(other.max, max));
-  }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(failedValue),
-      const DeepCollectionEquality().hash(max));
-
-  @JsonKey(ignore: true)
-  @override
-  _$$_ExceedingLengthCopyWith<T, _$_ExceedingLength<T>> get copyWith =>
-      __$$_ExceedingLengthCopyWithImpl<T, _$_ExceedingLength<T>>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(T failedValue) empty,
-    required TResult Function(T failedValue) multiLine,
-    required TResult Function(T failedValue, int max) exceedingLength,
-    required TResult Function(T failedValue) invalidNominal,
-    required TResult Function(T failedValue) containSpaces,
-  }) {
-    return exceedingLength(failedValue, max);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(T failedValue)? empty,
-    TResult Function(T failedValue)? multiLine,
-    TResult Function(T failedValue, int max)? exceedingLength,
-    TResult Function(T failedValue)? invalidNominal,
-    TResult Function(T failedValue)? containSpaces,
-  }) {
-    return exceedingLength?.call(failedValue, max);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(T failedValue)? empty,
-    TResult Function(T failedValue)? multiLine,
-    TResult Function(T failedValue, int max)? exceedingLength,
-    TResult Function(T failedValue)? invalidNominal,
-    TResult Function(T failedValue)? containSpaces,
-    required TResult orElse(),
-  }) {
-    if (exceedingLength != null) {
-      return exceedingLength(failedValue, max);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Empty<T> value) empty,
-    required TResult Function(_MultiLine<T> value) multiLine,
-    required TResult Function(_ExceedingLength<T> value) exceedingLength,
-    required TResult Function(_InvalidNominal<T> value) invalidNominal,
-    required TResult Function(_ContainSpaces<T> value) containSpaces,
-  }) {
-    return exceedingLength(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Empty<T> value)? empty,
-    TResult Function(_MultiLine<T> value)? multiLine,
-    TResult Function(_ExceedingLength<T> value)? exceedingLength,
-    TResult Function(_InvalidNominal<T> value)? invalidNominal,
-    TResult Function(_ContainSpaces<T> value)? containSpaces,
-  }) {
-    return exceedingLength?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Empty<T> value)? empty,
-    TResult Function(_MultiLine<T> value)? multiLine,
-    TResult Function(_ExceedingLength<T> value)? exceedingLength,
-    TResult Function(_InvalidNominal<T> value)? invalidNominal,
-    TResult Function(_ContainSpaces<T> value)? containSpaces,
-    required TResult orElse(),
-  }) {
-    if (exceedingLength != null) {
-      return exceedingLength(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _ExceedingLength<T> implements ValueFailure<T> {
-  const factory _ExceedingLength(
-      {required final T failedValue,
-      required final int max}) = _$_ExceedingLength<T>;
-
-  @override
-  T get failedValue;
-  int get max;
-  @override
-  @JsonKey(ignore: true)
-  _$$_ExceedingLengthCopyWith<T, _$_ExceedingLength<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -664,9 +457,7 @@ class _$_InvalidNominal<T> implements _InvalidNominal<T> {
   TResult when<TResult extends Object?>({
     required TResult Function(T failedValue) empty,
     required TResult Function(T failedValue) multiLine,
-    required TResult Function(T failedValue, int max) exceedingLength,
     required TResult Function(T failedValue) invalidNominal,
-    required TResult Function(T failedValue) containSpaces,
   }) {
     return invalidNominal(failedValue);
   }
@@ -676,9 +467,7 @@ class _$_InvalidNominal<T> implements _InvalidNominal<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue)? multiLine,
-    TResult Function(T failedValue, int max)? exceedingLength,
     TResult Function(T failedValue)? invalidNominal,
-    TResult Function(T failedValue)? containSpaces,
   }) {
     return invalidNominal?.call(failedValue);
   }
@@ -688,9 +477,7 @@ class _$_InvalidNominal<T> implements _InvalidNominal<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue)? multiLine,
-    TResult Function(T failedValue, int max)? exceedingLength,
     TResult Function(T failedValue)? invalidNominal,
-    TResult Function(T failedValue)? containSpaces,
     required TResult orElse(),
   }) {
     if (invalidNominal != null) {
@@ -704,9 +491,7 @@ class _$_InvalidNominal<T> implements _InvalidNominal<T> {
   TResult map<TResult extends Object?>({
     required TResult Function(_Empty<T> value) empty,
     required TResult Function(_MultiLine<T> value) multiLine,
-    required TResult Function(_ExceedingLength<T> value) exceedingLength,
     required TResult Function(_InvalidNominal<T> value) invalidNominal,
-    required TResult Function(_ContainSpaces<T> value) containSpaces,
   }) {
     return invalidNominal(this);
   }
@@ -716,9 +501,7 @@ class _$_InvalidNominal<T> implements _InvalidNominal<T> {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Empty<T> value)? empty,
     TResult Function(_MultiLine<T> value)? multiLine,
-    TResult Function(_ExceedingLength<T> value)? exceedingLength,
     TResult Function(_InvalidNominal<T> value)? invalidNominal,
-    TResult Function(_ContainSpaces<T> value)? containSpaces,
   }) {
     return invalidNominal?.call(this);
   }
@@ -728,9 +511,7 @@ class _$_InvalidNominal<T> implements _InvalidNominal<T> {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Empty<T> value)? empty,
     TResult Function(_MultiLine<T> value)? multiLine,
-    TResult Function(_ExceedingLength<T> value)? exceedingLength,
     TResult Function(_InvalidNominal<T> value)? invalidNominal,
-    TResult Function(_ContainSpaces<T> value)? containSpaces,
     required TResult orElse(),
   }) {
     if (invalidNominal != null) {
@@ -749,163 +530,5 @@ abstract class _InvalidNominal<T> implements ValueFailure<T> {
   @override
   @JsonKey(ignore: true)
   _$$_InvalidNominalCopyWith<T, _$_InvalidNominal<T>> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$_ContainSpacesCopyWith<T, $Res>
-    implements $ValueFailureCopyWith<T, $Res> {
-  factory _$$_ContainSpacesCopyWith(
-          _$_ContainSpaces<T> value, $Res Function(_$_ContainSpaces<T>) then) =
-      __$$_ContainSpacesCopyWithImpl<T, $Res>;
-  @override
-  $Res call({T failedValue});
-}
-
-/// @nodoc
-class __$$_ContainSpacesCopyWithImpl<T, $Res>
-    extends _$ValueFailureCopyWithImpl<T, $Res>
-    implements _$$_ContainSpacesCopyWith<T, $Res> {
-  __$$_ContainSpacesCopyWithImpl(
-      _$_ContainSpaces<T> _value, $Res Function(_$_ContainSpaces<T>) _then)
-      : super(_value, (v) => _then(v as _$_ContainSpaces<T>));
-
-  @override
-  _$_ContainSpaces<T> get _value => super._value as _$_ContainSpaces<T>;
-
-  @override
-  $Res call({
-    Object? failedValue = freezed,
-  }) {
-    return _then(_$_ContainSpaces<T>(
-      failedValue: failedValue == freezed
-          ? _value.failedValue
-          : failedValue // ignore: cast_nullable_to_non_nullable
-              as T,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_ContainSpaces<T> implements _ContainSpaces<T> {
-  const _$_ContainSpaces({required this.failedValue});
-
-  @override
-  final T failedValue;
-
-  @override
-  String toString() {
-    return 'ValueFailure<$T>.containSpaces(failedValue: $failedValue)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_ContainSpaces<T> &&
-            const DeepCollectionEquality()
-                .equals(other.failedValue, failedValue));
-  }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(failedValue));
-
-  @JsonKey(ignore: true)
-  @override
-  _$$_ContainSpacesCopyWith<T, _$_ContainSpaces<T>> get copyWith =>
-      __$$_ContainSpacesCopyWithImpl<T, _$_ContainSpaces<T>>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(T failedValue) empty,
-    required TResult Function(T failedValue) multiLine,
-    required TResult Function(T failedValue, int max) exceedingLength,
-    required TResult Function(T failedValue) invalidNominal,
-    required TResult Function(T failedValue) containSpaces,
-  }) {
-    return containSpaces(failedValue);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(T failedValue)? empty,
-    TResult Function(T failedValue)? multiLine,
-    TResult Function(T failedValue, int max)? exceedingLength,
-    TResult Function(T failedValue)? invalidNominal,
-    TResult Function(T failedValue)? containSpaces,
-  }) {
-    return containSpaces?.call(failedValue);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(T failedValue)? empty,
-    TResult Function(T failedValue)? multiLine,
-    TResult Function(T failedValue, int max)? exceedingLength,
-    TResult Function(T failedValue)? invalidNominal,
-    TResult Function(T failedValue)? containSpaces,
-    required TResult orElse(),
-  }) {
-    if (containSpaces != null) {
-      return containSpaces(failedValue);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Empty<T> value) empty,
-    required TResult Function(_MultiLine<T> value) multiLine,
-    required TResult Function(_ExceedingLength<T> value) exceedingLength,
-    required TResult Function(_InvalidNominal<T> value) invalidNominal,
-    required TResult Function(_ContainSpaces<T> value) containSpaces,
-  }) {
-    return containSpaces(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Empty<T> value)? empty,
-    TResult Function(_MultiLine<T> value)? multiLine,
-    TResult Function(_ExceedingLength<T> value)? exceedingLength,
-    TResult Function(_InvalidNominal<T> value)? invalidNominal,
-    TResult Function(_ContainSpaces<T> value)? containSpaces,
-  }) {
-    return containSpaces?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Empty<T> value)? empty,
-    TResult Function(_MultiLine<T> value)? multiLine,
-    TResult Function(_ExceedingLength<T> value)? exceedingLength,
-    TResult Function(_InvalidNominal<T> value)? invalidNominal,
-    TResult Function(_ContainSpaces<T> value)? containSpaces,
-    required TResult orElse(),
-  }) {
-    if (containSpaces != null) {
-      return containSpaces(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _ContainSpaces<T> implements ValueFailure<T> {
-  const factory _ContainSpaces({required final T failedValue}) =
-      _$_ContainSpaces<T>;
-
-  @override
-  T get failedValue;
-  @override
-  @JsonKey(ignore: true)
-  _$$_ContainSpacesCopyWith<T, _$_ContainSpaces<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }

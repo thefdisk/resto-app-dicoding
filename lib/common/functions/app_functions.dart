@@ -21,6 +21,7 @@ MaterialColor createMaterialColor(Color color) {
   return MaterialColor(color.value, swatch);
 }
 
+/// function yang berfungsi untuk men-hide keyboard,
 void dismissKeyboard(BuildContext context) {
   final currentFocus = FocusScope.of(context);
   if (!currentFocus.hasPrimaryFocus && currentFocus.focusedChild != null) {

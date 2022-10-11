@@ -2,19 +2,13 @@
 
 <resources>
     <color name="primary_yellow_700">#FBC02D</color>
-    <color name="secondary_yellow_500">#FFEB3B</color>
-    <color name="secondary_yellow_300">#FFF176</color>
     <color name="text_primary_white">#FFFFFF</color>
     <color name="text_secondary_grey">#232323</color>
     <color name="text_disabled_grey">#4F4F4F</color>
-    <color name="alert_positive_green">#36B37E</color>
     <color name="alert_negative_red">#EC695C</color>
-    <color name="alert_attention_blue">#3872EC</color>
-    <color name="alert_caution_orange">#FF9800</color>
     <color name="alert_off_grey">#C2C2C2</color>
     <color name="accent_background_grey">#202022</color>
     <color name="accent_container_grey">#282A2C</color>
     <color name="accent_card_grey">#404042</color>
     <color name="accent_line_grey">#797B7D</color>
-    <color name="accent_black">#000000</color>
 </resources>

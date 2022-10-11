@@ -17,8 +17,66 @@ class RestaurantReviewFormBloc
 
   RestaurantReviewFormBloc(this._restaurantRepository)
       : super(RestaurantReviewFormState.initial()) {
-    on<RestaurantReviewFormEvent>((event, emit) {
-      // TODO: implement event handler
-    });
+    on<RestaurantReviewFormEvent>(_onRestaurantReviewFormEvent);
+  }
+
+  Future<void> _onRestaurantReviewFormEvent(
+    RestaurantReviewFormEvent event,
+    Emitter<RestaurantReviewFormState> emit,
+  ) {
+    return event.map(
+      restaurantIdChanged: (e) async {
+        emit(
+          state.copyWith(
+            restaurantId: e.restaurantId,
+            failureOrUnitOption: none(),
+          ),
+        );
+      },
+      nameChanged: (e) async {
+        emit(
+          state.copyWith(
+            name: StringSingleLine(e.name),
+            failureOrUnitOption: none(),
+          ),
+        );
+      },
+      reviewChanged: (e) async {
+        emit(
+          state.copyWith(
+            review: StringSingleLine(e.review),
+            failureOrUnitOption: none(),
+          ),
+        );
+      },
+      submitted: (e) async {
+        Either<RestaurantFailure, Unit>? failureOrSuccess;
+
+        emit(
+          state.copyWith(
+            isSubmitting: true,
+            failureOrUnitOption: none(),
+          ),
+        );
+
+        final nameValid = state.name.isValid();
+        final reviewValid = state.review.isValid();
+
+        if (nameValid && reviewValid) {
+          failureOrSuccess = await _restaurantRepository.addRestaurantReview(
+            restaurantId: state.restaurantId,
+            name: state.name,
+            review: state.review,
+          );
+        }
+
+        emit(
+          state.copyWith(
+            isSubmitting: false,
+            failureOrUnitOption: optionOf(failureOrSuccess),
+          ),
+        );
+      },
+    );
   }
 }

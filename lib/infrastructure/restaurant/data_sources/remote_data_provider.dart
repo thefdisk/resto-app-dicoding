@@ -38,10 +38,6 @@ class RestaurantRemoteDataProvider {
         stackTrace: s,
       );
 
-      if (e == const ApiFailure.connectionError()) {
-        return DC.error(const RestaurantFailure.fetchError());
-      }
-
       return DC.error(RestaurantFailure.serverError(e));
     }
   }
@@ -68,10 +64,6 @@ class RestaurantRemoteDataProvider {
         error: e,
         stackTrace: s,
       );
-
-      if (e == const ApiFailure.connectionError()) {
-        return DC.error(const RestaurantFailure.fetchError());
-      }
 
       return DC.error(RestaurantFailure.serverError(e));
     }
@@ -109,15 +101,12 @@ class RestaurantRemoteDataProvider {
         stackTrace: s,
       );
 
-      if (e == const ApiFailure.connectionError()) {
-        return DC.error(const RestaurantFailure.fetchError());
-      }
-
       return DC.error(RestaurantFailure.serverError(e));
     }
   }
 
   Future<DC<RestaurantFailure, Unit>> postRestaurantReview({
+    required String restaurantId,
     required String name,
     required String review,
   }) async {
@@ -125,12 +114,13 @@ class RestaurantRemoteDataProvider {
       final response = await _apiClient.post(
         ApiPath.postReview,
         data: {
+          'id': restaurantId,
           'name': name,
           'review': review,
         },
       );
 
-      if (response.statusCode != 200) {
+      if (response.statusCode != 201) {
         return DC.error(const RestaurantFailure.fetchError());
       }
 
@@ -146,10 +136,6 @@ class RestaurantRemoteDataProvider {
         error: e,
         stackTrace: s,
       );
-
-      if (e == const ApiFailure.connectionError()) {
-        return DC.error(const RestaurantFailure.fetchError());
-      }
 
       return DC.error(RestaurantFailure.serverError(e));
     }

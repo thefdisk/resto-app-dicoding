@@ -45,6 +45,7 @@ class _AppWidgetState extends State<AppWidget> {
           ],
         ),
         child: MaterialApp.router(
+          debugShowCheckedModeBanner: false,
           title: 'Restaurant app',
           key: navKey,
           routeInformationParser: _appRouter.defaultRouteParser(),
@@ -53,6 +54,10 @@ class _AppWidgetState extends State<AppWidget> {
             brightness: Brightness.dark,
             primarySwatch: createMaterialColor(ColorName.primaryYellow700),
             canvasColor: ColorName.accentBackgroundGrey,
+            dividerTheme: const DividerThemeData(
+              color: ColorName.accentLineGrey,
+              thickness: 1,
+            ),
           ),
           themeMode: ThemeMode.dark,
           builder: (context, child) => GestureDetector(

@@ -10,14 +10,7 @@ class ValueFailure<T> with _$ValueFailure<T> {
   const factory ValueFailure.multiLine({
     required T failedValue,
   }) = _MultiLine<T>;
-  const factory ValueFailure.exceedingLength({
-    required T failedValue,
-    required int max,
-  }) = _ExceedingLength<T>;
   const factory ValueFailure.invalidNominal({
     required T failedValue,
   }) = _InvalidNominal<T>;
-  const factory ValueFailure.containSpaces({
-    required T failedValue,
-  }) = _ContainSpaces<T>;
 }

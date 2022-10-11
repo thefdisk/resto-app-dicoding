@@ -101,11 +101,13 @@ class RestaurantRepository implements IRestaurantRepository {
 
   @override
   Future<Either<RestaurantFailure, Unit>> addRestaurantReview({
+    required GeneratedId restaurantId,
     required StringSingleLine name,
     required StringSingleLine review,
   }) async {
     try {
       final result = await _remoteDataProvider.postRestaurantReview(
+        restaurantId: restaurantId.getOrCrash(),
         name: name.getOrCrash(),
         review: review.getOrCrash(),
       );

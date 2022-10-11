@@ -9,7 +9,8 @@ class BadNetwotkErrorInterceptor extends Interceptor {
   @override
   Future onError(DioError err, ErrorInterceptorHandler handler) async {
     final isConnected = await _networkClient.isConnected;
-    if (err.response == null && !isConnected || err.response == null) {
+    if (err.response == null && !isConnected ||
+        err.type == DioErrorType.connectTimeout) {
       handler.reject(BadNetworkError(err));
     }
 
