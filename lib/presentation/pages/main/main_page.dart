@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:resto_app_dicoding/application/restaurant/restaurant_loader/restaurant_loader_bloc.dart';
 import 'package:resto_app_dicoding/injection.dart';
+import 'package:resto_app_dicoding/presentation/components/failure/restaurant_failure_widget.dart';
 import 'package:resto_app_dicoding/presentation/components/gen/colors.gen.dart';
 import 'package:resto_app_dicoding/presentation/components/styles/typography.dart';
 import 'package:resto_app_dicoding/presentation/components/widgets/restaurant_card_widget.dart';
@@ -36,26 +37,11 @@ class MainPage extends StatelessWidget implements AutoRouteWrapper {
           return state.map(
             initial: (_) => const SizedBox(),
             loadInProgress: (_) => const RestaurantLoadingCardWidget(),
-            loadFailure: (f) => f.failure.maybeMap(
-              orElse: () => const SizedBox(),
-              serverError: (value) => Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      value.failure.toStringFormatted(),
-                      style: AppTypography(context).body2,
-                    ),
-                    const SizedBox(height: 8),
-                    ElevatedButton(
-                      onPressed: () => context
-                          .read<RestaurantLoaderBloc>()
-                          .add(const RestaurantLoaderEvent.fetched()),
-                      child: const Text('Coba lagi'),
-                    ),
-                  ],
-                ),
-              ),
+            loadFailure: (f) => RestaurantFailureWidget(
+              failure: f.failure,
+              onPressed: () => context
+                  .read<RestaurantLoaderBloc>()
+                  .add(const RestaurantLoaderEvent.fetched()),
             ),
             loadSuccess: (state) {
               final restaurants = state.restaurants;

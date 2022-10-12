@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:dartz/dartz.dart';
 import 'package:data_channel/data_channel.dart';
 import 'package:injectable/injectable.dart';
@@ -30,14 +28,7 @@ class RestaurantRemoteDataProvider {
           .toList();
 
       return DC.data(dtos);
-    } on ApiFailure catch (e, s) {
-      log(
-        'fetchRestaurants',
-        name: 'RestaurantRemoteDataProvider',
-        error: e,
-        stackTrace: s,
-      );
-
+    } on ApiFailure catch (e) {
       return DC.error(RestaurantFailure.serverError(e));
     }
   }
@@ -57,14 +48,7 @@ class RestaurantRemoteDataProvider {
       final dto = RestaurantDto.fromJson(response.data['restaurant']);
 
       return DC.data(dto);
-    } on ApiFailure catch (e, s) {
-      log(
-        'fetchDetailRestaurants',
-        name: 'RestaurantRemoteDataProvider',
-        error: e,
-        stackTrace: s,
-      );
-
+    } on ApiFailure catch (e) {
       return DC.error(RestaurantFailure.serverError(e));
     }
   }
@@ -93,14 +77,7 @@ class RestaurantRemoteDataProvider {
           .toList();
 
       return DC.data(dtos);
-    } on ApiFailure catch (e, s) {
-      log(
-        'searchRestaurants',
-        name: 'RestaurantRemoteDataProvider',
-        error: e,
-        stackTrace: s,
-      );
-
+    } on ApiFailure catch (e) {
       return DC.error(RestaurantFailure.serverError(e));
     }
   }
@@ -129,14 +106,7 @@ class RestaurantRemoteDataProvider {
       }
 
       return DC.data(unit);
-    } on ApiFailure catch (e, s) {
-      log(
-        'postReviewRestaurants',
-        name: 'RestaurantRemoteDataProvider',
-        error: e,
-        stackTrace: s,
-      );
-
+    } on ApiFailure catch (e) {
       return DC.error(RestaurantFailure.serverError(e));
     }
   }

@@ -5,11 +5,13 @@ import 'package:resto_app_dicoding/application/restaurant/restaurant_detail_load
 import 'package:resto_app_dicoding/domain/core/value_objects.dart';
 import 'package:resto_app_dicoding/injection.dart';
 import 'package:resto_app_dicoding/presentation/components/bottom_sheet/restaurant_review_bottom_sheet.dart';
+import 'package:resto_app_dicoding/presentation/components/failure/restaurant_failure_widget.dart';
 import 'package:resto_app_dicoding/presentation/components/gen/colors.gen.dart';
 import 'package:resto_app_dicoding/presentation/components/styles/typography.dart';
 import 'package:resto_app_dicoding/presentation/routes/app_router.gr.dart';
 
 import 'widgets/restaurant_detail_header_widget.dart';
+import 'widgets/restaurant_detail_loading_widget.dart';
 
 class RestaurantDetailPage extends StatelessWidget implements AutoRouteWrapper {
   const RestaurantDetailPage({
@@ -71,10 +73,13 @@ class RestaurantDetailPage extends StatelessWidget implements AutoRouteWrapper {
             builder: (context, state) {
               return state.map(
                 initial: (_) => const SizedBox(),
-                loadInProgress: (_) => const Center(
-                  child: CircularProgressIndicator(),
+                loadInProgress: (_) => const RestaurantDetailLoadingWidget(),
+                loadFailure: (f) => RestaurantFailureWidget(
+                  failure: f.failure,
+                  onPressed: () => context
+                      .read<RestaurantDetailLoaderBloc>()
+                      .add(RestaurantDetailLoaderEvent.fetched(restaurantId)),
                 ),
-                loadFailure: (_) => const SizedBox(),
                 loadSuccess: (state) {
                   final restaurant = state.restaurant;
 

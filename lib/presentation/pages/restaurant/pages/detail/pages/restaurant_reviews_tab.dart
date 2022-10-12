@@ -17,6 +17,7 @@ class RestaurantReviewsPage extends StatelessWidget {
             final reviews = state.restaurant.reviews;
 
             return ListView.builder(
+              shrinkWrap: true,
               padding: const EdgeInsets.only(bottom: 16),
               itemCount: reviews.size,
               itemBuilder: (context, index) {
@@ -39,9 +40,11 @@ class RestaurantReviewsPage extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(
-                            review.name.getOrElse('Tidak ada nama'),
-                            style: AppTypography(context).body2,
+                          Expanded(
+                            child: Text(
+                              review.name.getOrElse('Tidak ada nama'),
+                              style: AppTypography(context).body2,
+                            ),
                           ),
                           Text(
                             review.date.getOrElse('-'),
