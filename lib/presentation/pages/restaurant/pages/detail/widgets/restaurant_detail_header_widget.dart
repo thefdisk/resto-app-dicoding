@@ -21,16 +21,13 @@ class RestaurantDetailHeaderWidget extends StatelessWidget {
         children: [
           CachedNetworkImage(
             imageUrl: restaurant.imageUrlLarge,
-            imageBuilder: (context, image) => Hero(
-              tag: restaurant.pictureId.getOrCrash(),
-              child: Container(
-                height: 200,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8),
-                  image: DecorationImage(
-                    image: image,
-                    fit: BoxFit.cover,
-                  ),
+            imageBuilder: (context, image) => Container(
+              height: 200,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8),
+                image: DecorationImage(
+                  image: image,
+                  fit: BoxFit.cover,
                 ),
               ),
             ),

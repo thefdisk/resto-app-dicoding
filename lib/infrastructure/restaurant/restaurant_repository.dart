@@ -7,7 +7,9 @@ import 'package:resto_app_dicoding/domain/core/value_objects.dart';
 import 'package:resto_app_dicoding/domain/restaurant/i_restaurant_repository.dart';
 import 'package:resto_app_dicoding/domain/restaurant/restaurant_failure.dart';
 import 'package:resto_app_dicoding/domain/restaurant/restaurant.dart';
+import 'package:resto_app_dicoding/infrastructure/restaurant/data_sources/local_data_provider.dart';
 import 'package:resto_app_dicoding/infrastructure/restaurant/data_sources/remote_data_provider.dart';
+import 'package:resto_app_dicoding/infrastructure/restaurant/restaurant_dtos.dart';
 
 @Injectable(as: IRestaurantRepository)
 class RestaurantRepository implements IRestaurantRepository {
@@ -120,6 +122,88 @@ class RestaurantRepository implements IRestaurantRepository {
     } catch (e, s) {
       log(
         'addReviewRestaurants',
+        name: 'RestaurantRepository',
+        error: e,
+        stackTrace: s,
+      );
+
+      return left(const RestaurantFailure.unexpectedError());
+    }
+  }
+
+  @override
+  Future<Either<RestaurantFailure, KtList<Restaurant>>>
+      getRestaurantFavourites() async {
+    try {
+      final result =
+          await RestaurantLocalDataProvider.instance.getRestaurantFavourites();
+
+      if (result.hasError) {
+        return left(result.error!);
+      }
+
+      final restaurants = result.data!
+          .map((restaurant) => restaurant.toDomain())
+          .toImmutableList();
+
+      return right(restaurants);
+    } catch (e, s) {
+      log(
+        'getRestaurantFavourites',
+        name: 'RestaurantRepository',
+        error: e,
+        stackTrace: s,
+      );
+
+      return left(const RestaurantFailure.unexpectedError());
+    }
+  }
+
+  @override
+  Future<Either<RestaurantFailure, Unit>> addRestaurantFavorite({
+    required Restaurant restaurant,
+  }) async {
+    try {
+      final restaurantDto = RestaurantDto.fromDomain(restaurant);
+
+      final result = await RestaurantLocalDataProvider.instance
+          .insertRestaurantFavorite(restaurantDto);
+
+      if (result.hasError) {
+        return left(result.error!);
+      }
+
+      return right(unit);
+    } catch (e, s) {
+      log(
+        'insertRestaurantFavorite',
+        name: 'RestaurantRepository',
+        error: e,
+        stackTrace: s,
+      );
+
+      return left(const RestaurantFailure.unexpectedError());
+    }
+  }
+
+  @override
+  Future<Either<RestaurantFailure, Unit>> deleteRestaurantFavorite({
+    required GeneratedId restaurantId,
+  }) async {
+    try {
+      final result =
+          await RestaurantLocalDataProvider.instance.deleteRestaurantFavorite(
+        restaurantId.getOrCrash(),
+      );
+
+      if (result.hasError) {
+        return left(result.error!);
+      }
+
+      return right(unit);
+    } catch (e, s) {
+      log(
+        'deleteRestaurantFavorite',
         name: 'RestaurantRepository',
         error: e,
         stackTrace: s,

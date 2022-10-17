@@ -46,4 +46,13 @@ class RestaurantDto with _$RestaurantDto {
             reviews?.map((review) => review.toDomain()).toImmutableList() ??
                 const KtList.empty(),
       );
+
+  factory RestaurantDto.fromDomain(Restaurant restaurant) => RestaurantDto(
+        restaurantId: restaurant.restaurantId.getOrCrash(),
+        name: restaurant.name.getOrCrash(),
+        description: restaurant.description.getOrCrash(),
+        pictureId: restaurant.pictureId.getOrCrash(),
+        city: restaurant.city.getOrCrash(),
+        rating: restaurant.rating.getOrCrash().toDouble(),
+      );
 }

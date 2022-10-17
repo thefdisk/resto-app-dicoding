@@ -8,6 +8,7 @@ import 'package:resto_app_dicoding/presentation/components/bottom_sheet/restaura
 import 'package:resto_app_dicoding/presentation/components/failure/restaurant_failure_widget.dart';
 import 'package:resto_app_dicoding/presentation/components/gen/colors.gen.dart';
 import 'package:resto_app_dicoding/presentation/components/styles/typography.dart';
+import 'package:resto_app_dicoding/presentation/components/widgets/restaurant_button_favorite_widget.dart';
 import 'package:resto_app_dicoding/presentation/routes/app_router.gr.dart';
 
 import 'widgets/restaurant_detail_header_widget.dart';
@@ -43,25 +44,32 @@ class RestaurantDetailPage extends StatelessWidget implements AutoRouteWrapper {
                 builder: (context, state) {
                   return state.maybeMap(
                     orElse: () => const SizedBox(),
-                    loadSuccess: (state) => IconButton(
-                      onPressed: () => showReviewRestaurantBottomSheet(
-                        context,
-                        restaurant: state.restaurant,
-                      ).then(
-                        /// Jika review sukses maka akan merefresh detail restaurant
-                        /// untuk mendapatkan data review yang terbaru.
-                        (value) => value != null && value
-                            ? context
-                                .read<RestaurantDetailLoaderBloc>()
-                                .add(RestaurantDetailLoaderEvent.fetched(
-                                  restaurantId,
-                                ))
-                            : null,
-                      ),
-                      icon: const Icon(
-                        Icons.rate_review_outlined,
-                        color: ColorName.primaryYellow700,
-                      ),
+                    loadSuccess: (state) => Row(
+                      children: [
+                        IconButton(
+                          onPressed: () => showReviewRestaurantBottomSheet(
+                            context,
+                            restaurant: state.restaurant,
+                          ).then(
+                            /// Jika review sukses maka akan merefresh detail restaurant
+                            /// untuk mendapatkan data review yang terbaru.
+                            (value) => value != null && value
+                                ? context
+                                    .read<RestaurantDetailLoaderBloc>()
+                                    .add(RestaurantDetailLoaderEvent.fetched(
+                                      restaurantId,
+                                    ))
+                                : null,
+                          ),
+                          icon: const Icon(
+                            Icons.rate_review_outlined,
+                            color: ColorName.primaryYellow700,
+                          ),
+                        ),
+                        RestaurantButtonFavoriteWidget(
+                          restaurant: state.restaurant,
+                        ),
+                      ],
                     ),
                   );
                 },

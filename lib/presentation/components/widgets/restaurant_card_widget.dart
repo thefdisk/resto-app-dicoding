@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:resto_app_dicoding/domain/restaurant/restaurant.dart';
 import 'package:resto_app_dicoding/presentation/components/gen/colors.gen.dart';
 import 'package:resto_app_dicoding/presentation/components/styles/typography.dart';
+import 'package:resto_app_dicoding/presentation/components/widgets/restaurant_button_favorite_widget.dart';
 import 'package:skeletons/skeletons.dart';
 
 class RestaurantCardWidget extends StatelessWidget {
@@ -38,17 +39,14 @@ class RestaurantCardWidget extends StatelessWidget {
           children: [
             CachedNetworkImage(
               imageUrl: restaurant.imageUrlMedium,
-              imageBuilder: (context, image) => Hero(
-                tag: restaurant.pictureId.getOrCrash(),
-                child: Container(
-                  height: 100,
-                  width: 100,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    image: DecorationImage(
-                      image: image,
-                      fit: BoxFit.cover,
-                    ),
+              imageBuilder: (context, image) => Container(
+                height: 100,
+                width: 100,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  image: DecorationImage(
+                    image: image,
+                    fit: BoxFit.cover,
                   ),
                 ),
               ),
@@ -108,6 +106,7 @@ class RestaurantCardWidget extends StatelessWidget {
                 ],
               ),
             ),
+            RestaurantButtonFavoriteWidget(restaurant: restaurant),
           ],
         ),
       ),

@@ -17,4 +17,12 @@ abstract class IRestaurantRepository {
     required StringSingleLine name,
     required StringSingleLine review,
   });
+  Future<Either<RestaurantFailure, KtList<Restaurant>>>
+      getRestaurantFavourites();
+  Future<Either<RestaurantFailure, Unit>> addRestaurantFavorite({
+    required Restaurant restaurant,
+  });
+  Future<Either<RestaurantFailure, Unit>> deleteRestaurantFavorite({
+    required GeneratedId restaurantId,
+  });
 }
